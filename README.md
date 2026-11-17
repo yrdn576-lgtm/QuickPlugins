@@ -1,5 +1,11 @@
 # QuickPlugins
 
+## Preview
+
+![QuickPlugins shortcut button beside Discord account settings](docs/quickplugins-button.jpg)
+
+![QuickPlugins manager showing All, Enabled and Disabled plugin filters](docs/quickplugins-preview.jpg)
+
 Manage Vencord plugins from a convenient button in the Discord account panel.
 
 Maintained by [@yrdn576-lgtm](https://github.com/yrdn576-lgtm).
@@ -7,16 +13,6 @@ Maintained by [@yrdn576-lgtm](https://github.com/yrdn576-lgtm).
 ## Features
 
 QuickPlugins adds a searchable interface for managing Vencord plugins, including enabled/disabled filters, plugin settings access, dependency awareness, and restart handling.
-
-## Screenshots
-
-**Account-panel shortcut**
-
-![QuickPlugins button in the Discord account panel](docs/quickplugins-button.jpg)
-
-**Plugin manager — All, Enabled, and Disabled views**
-
-![QuickPlugins plugin manager and filters](docs/quickplugins-preview.jpg)
 
 ## Installation (Vencord source build)
 

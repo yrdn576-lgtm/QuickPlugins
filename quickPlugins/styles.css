@@ -1,0 +1,285 @@
+/*
+ * QuickPlugins - Modal UI
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * Keep Discord's native modal positioning intact.
+ */
+
+/* Main content */
+.vc-quickplugins-popover {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    color: var(--text-default, #f2f3f5);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    font-size: 13px;
+}
+
+/* Hide the old nested header */
+.vc-quickplugins-header {
+    display: none;
+}
+
+/* Search */
+.vc-quickplugins-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 4px 0 14px;
+    padding: 0 14px;
+    min-height: 44px;
+    border: 1px solid var(--border-subtle, #30323d);
+    border-radius: 10px;
+    background: var(--background-base-low, #101218);
+    color: var(--text-muted, #9296a3);
+    transition: border-color 150ms ease;
+}
+
+.vc-quickplugins-search:focus-within {
+    border-color: var(--brand-500, #5865f2);
+}
+
+.vc-quickplugins-search input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-default, #f2f3f5);
+    font: inherit;
+}
+
+.vc-quickplugins-search input::placeholder {
+    color: var(--text-muted, #9296a3);
+}
+
+/* Filters */
+.vc-quickplugins-filters {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding: 4px;
+    border-radius: 10px;
+    background: var(--background-base-low, #101218);
+}
+
+.vc-quickplugins-filters button {
+    flex: 1;
+    min-height: 34px;
+    padding: 7px 12px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--text-muted, #9296a3);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 150ms ease,
+        color 150ms ease;
+}
+
+.vc-quickplugins-filters button:hover {
+    color: var(--text-default, #f2f3f5);
+    background: var(--background-modifier-hover);
+}
+
+.vc-quickplugins-filters button.active {
+    background: var(
+        --background-modifier-selected,
+        #303344
+    );
+    color: var(--text-default, #fff);
+}
+
+/* Plugin list */
+.vc-quickplugins-list {
+    box-sizing: border-box;
+    flex: 1;
+    min-height: 160px;
+    max-height: min(440px, 48vh);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2px 5px 2px 0;
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--scrollbar-thin-thumb, #454957)
+        transparent;
+}
+
+.vc-quickplugins-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.vc-quickplugins-list::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thin-thumb, #454957);
+    border-radius: 8px;
+}
+
+.vc-quickplugins-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Plugin rows */
+.vc-quickplugins-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-sizing: border-box;
+    min-height: 68px;
+    padding: 12px 13px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    transition:
+        background 140ms ease,
+        border-color 140ms ease;
+}
+
+.vc-quickplugins-item + .vc-quickplugins-item {
+    margin-top: 3px;
+}
+
+.vc-quickplugins-item:hover {
+    background: var(
+        --background-modifier-hover,
+        rgba(255, 255, 255, 0.04)
+    );
+    border-color: var(
+        --border-subtle,
+        rgba(255, 255, 255, 0.06)
+    );
+}
+
+.vc-quickplugins-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.vc-quickplugins-name {
+    margin-bottom: 5px;
+    font-size: 13px;
+    line-height: 1.25;
+    font-weight: 650;
+    color: var(--text-default, #f2f3f5);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.vc-quickplugins-description {
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--text-muted, #9296a3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Settings button */
+.vc-quickplugins-settings {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-muted, #9296a3);
+    cursor: pointer;
+    transition:
+        background 140ms ease,
+        color 140ms ease;
+}
+
+.vc-quickplugins-settings:hover {
+    color: var(--text-default, #fff);
+    background: var(--background-modifier-hover);
+}
+
+/* Toggle */
+.vc-quickplugins-toggle {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 38px;
+    height: 22px;
+    padding: 3px;
+    border: none;
+    border-radius: 99px;
+    background: var(--interactive-muted, #747783);
+    cursor: pointer;
+    transition: background 160ms ease;
+}
+
+.vc-quickplugins-toggle span {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 160ms ease;
+}
+
+.vc-quickplugins-toggle.enabled {
+    background: var(--brand-500, #5865f2);
+}
+
+.vc-quickplugins-toggle.enabled span {
+    transform: translateX(16px);
+}
+
+.vc-quickplugins-toggle:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Footer */
+.vc-quickplugins-footer {
+    margin-top: 12px;
+    padding: 13px 2px 2px;
+    border-top: 1px solid var(
+        --border-subtle,
+        rgba(255, 255, 255, 0.08)
+    );
+    color: var(--text-muted, #9296a3);
+    font-size: 11px;
+    text-align: right;
+}
+
+.vc-quickplugins-empty {
+    padding: 50px 12px;
+    text-align: center;
+    color: var(--text-muted, #9296a3);
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .vc-quickplugins-item {
+        gap: 8px;
+        padding: 10px 7px;
+    }
+
+    .vc-quickplugins-list {
+        max-height: 45vh;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vc-quickplugins-popover *,
+    .vc-quickplugins-popover *::before,
+    .vc-quickplugins-popover *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
